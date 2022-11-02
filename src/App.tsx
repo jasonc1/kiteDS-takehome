@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Text from './components/Text/Text';
 import Nav, { NavElementType } from './components/Nav/Nav';
+import ContentCard from './components/Card/ContentCard';
 
 const StyledApp = styled.div`
   height: 100vh;
@@ -16,6 +17,11 @@ const StyledDiv = styled.div`
   background-color: ${(props) => props.theme.colors.core.background};
   padding: 120px 80px;
   width: 800px;
+`;
+
+const StyledRow = styled.div`
+  min-height: 320px;
+  margin-top: 80px;
 `;
 
 const defaultNavList: NavElementType[] = [
@@ -56,6 +62,20 @@ const App = () => {
         </Text>
 
         <Nav items={navList} updateNav={updateActive} />
+        <StyledRow>
+          {' '}
+          <ContentCard
+            imgURL="https://media.cnn.com/api/v1/images/stellar/prod/210721150408-02-ted-lasso-jason-sudeikis.jpg?q=x_3,y_0,h_1665,w_2959,c_crop/h_720,w_1280"
+            title="Ted Lasso"
+            episodes={22}
+          />
+        </StyledRow>
+
+        <ContentCard
+          imgURL="https://media.cnn.com/api/v1/images/stellar/prod/210721150408-02-ted-lasso-jason-sudeikis.jpg?q=x_3,y_0,h_1665,w_2959,c_crop/h_720,w_1280"
+          title="Ted Lasso"
+          episodes={22}
+        />
       </StyledDiv>
     </StyledApp>
   );

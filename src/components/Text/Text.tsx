@@ -20,24 +20,31 @@ const Paragraph500 = styled.p<{ display: string; color: string }>`
   font-weight: ${(props) => props.theme.typography.paragraph500.fontWeight};
   color: ${(props) => props.color};
   display: ${(props) => props.display};
+
+  margin-block-start: 0;
+  margin-block-end: 0;
 `;
 
-const Small500 = styled.h2<{ display: string; color: string }>`
+const Small500 = styled.p<{ display: string; color: string }>`
   font-family: ${(props) => props.theme.typography.small500.fontFamily};
   font-size: ${(props) => props.theme.typography.small500.fontSize};
   line-height: ${(props) => props.theme.typography.small500.lineHeight};
   font-weight: ${(props) => props.theme.typography.small500.fontWeight};
   color: ${(props) => props.color};
   display: ${(props) => props.display};
+  margin-block-start: 0;
+  margin-block-end: 0;
 `;
 
-const Small400 = styled.h2<{ display: string; color: string }>`
+const Small400 = styled.p<{ display: string; color: string }>`
   font-family: ${(props) => props.theme.typography.small400.fontFamily};
   font-size: ${(props) => props.theme.typography.small400.fontSize};
   line-height: ${(props) => props.theme.typography.small400.lineHeight};
   font-weight: ${(props) => props.theme.typography.small400.fontWeight};
   color: ${(props) => props.color};
   display: ${(props) => props.display};
+  margin-block-start: 0;
+  margin-block-end: 0;
 `;
 
 type TextType = 'h2' | 'paragraph500' | 'small500' | 'small400';
