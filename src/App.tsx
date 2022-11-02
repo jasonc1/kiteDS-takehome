@@ -1,26 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const Heading2 = styled.h2`
+  font-family: ${(props) => props.theme.typography.h2.fontFamily};
+  font-size: ${(props) => props.theme.typography.h2.fontSize};
+  line-height: ${(props) => props.theme.typography.h2.lineHeight};
+  font-weight: ${(props) => props.theme.typography.h2.fontWeight};
+  letter-spacing: 0.03em;
+  color: ${(props) => props.theme.colors.brand.primary};
+`;
+
+const App = () => {
+  return <Heading2>Hello Styled Components</Heading2>;
+};
 
 export default App;
