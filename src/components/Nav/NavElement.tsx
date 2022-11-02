@@ -6,6 +6,7 @@ import theme from '../../tokens/theme';
 interface NavElementProps {
   text: string;
   active?: boolean;
+  updateNav: (id: string) => void;
 }
 
 const StyledNavElement = styled.button`
@@ -19,10 +20,15 @@ const StyledNavElement = styled.button`
   }
 `;
 
-const NavElement = ({ text, active = false }: NavElementProps) => {
+const NavElement = ({ text, active = false, updateNav }: NavElementProps) => {
   const color = active ? 'accent' : 'grey';
+
+  const handleClick = () => {
+    updateNav(text);
+  };
+
   return (
-    <StyledNavElement>
+    <StyledNavElement onClick={handleClick}>
       <Text type="paragraph500" color={color}>
         {text}
       </Text>

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Text from './components/Text/Text';
-import Nav from './components/Nav/Nav';
-import NavElement from './components/Nav/Nav';
+import Nav, { NavElementType } from './components/Nav/Nav';
 
 const StyledApp = styled.div`
   height: 100vh;
@@ -19,34 +18,44 @@ const StyledDiv = styled.div`
   width: 800px;
 `;
 
-const defaultNavList = [
-  { text: 'Featured', active: false },
-  { text: 'Movies', active: false },
-  { text: 'TV Shows', active: true },
-  { text: 'Networks', active: false },
-  { text: 'Kids', active: false },
+const defaultNavList: NavElementType[] = [
+  { id: 'Featured', active: false },
+  { id: 'Movies', active: false },
+  { id: 'TV Shows', active: true },
+  { id: 'Networks', active: false },
+  { id: 'Kids', active: false },
 ];
 
 const App = () => {
   const [navList, setNavList] = useState(defaultNavList);
+  const updateActive = (id: string) => {
+    let temp: NavElementType[] = [];
+    navList.map((navItem: NavElementType) => {
+      if (navItem.id === id) {
+        console.log('bingo');
+        temp.push({ ...navItem, active: true });
+      } else temp.push({ ...navItem, active: false });
+    });
+    setNavList(temp);
+  };
 
   return (
     <StyledApp>
       <StyledDiv>
         <Text type="h2" display="block">
-          this is a test component
+          This is a header2 type style
         </Text>
         <Text type="paragraph500" display="block">
-          this is a test component
+          This is a paragraph500 type style
         </Text>
         <Text type="small500" display="block">
-          THIS IS A TEST
+          This is a small500 type style
         </Text>
         <Text type="small400" display="block">
-          THIS IS A TEST
+          This is a small400 type style
         </Text>
 
-        <Nav items={navList} />
+        <Nav items={navList} updateNav={updateActive} />
       </StyledDiv>
     </StyledApp>
   );

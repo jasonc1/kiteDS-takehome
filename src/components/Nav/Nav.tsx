@@ -3,26 +3,32 @@ import styled from 'styled-components';
 import NavElement from './NavElement';
 
 const StyledNav = styled.div`
+  margin-left: 120px;
   display: inline-flex;
   flex-direction: row;
   align-items: flex-start;
   gap: 32px;
 `;
 
-export type NavElement = {
-  text: string;
+export type NavElementType = {
+  id: string;
   active?: boolean;
 };
 
 interface NavProps {
-  items: NavElement[];
+  items: NavElementType[];
+  updateNav: (id: string) => void;
 }
 
-const Nav = ({ items }: NavProps) => {
+const Nav = ({ items, updateNav }: NavProps) => {
   return (
     <StyledNav>
       {items.map((item, i) => (
-        <NavElement text={item.text} active={item.active}></NavElement>
+        <NavElement
+          text={item.id}
+          active={item.active}
+          updateNav={updateNav}
+        ></NavElement>
       ))}
     </StyledNav>
   );
